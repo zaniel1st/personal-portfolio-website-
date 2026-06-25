@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEUROK // Frontend Developer Portfolio</title>
+    <style>
+        :root {
+            --bg-primary: #0b0f19;
+            --bg-secondary: #131a26;
+            --accent: #38bdf8;
+            --accent-dim: rgba(56, 189, 248, 0.15);
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: #1e293b;
+            --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            display: flex;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Unique Split Layout Layout Engine */
+        .identity-pane {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 40%;
+            height: 100vh;
+            background-color: var(--bg-secondary);
+            border-right: 1px solid var(--border);
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            z-index: 10;
+        }
+
+        .content-pane {
+            margin-left: 40%;
+            width: 60%;
+            padding: 80px 80px;
+        }
+
+        /* Left Side Typography & Branding */
+        .brand-monogram {
+            font-family: var(--font-mono);
+            color: var(--accent);
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+
+        .title-sub {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .tagline {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            max-width: 380px;
+        }
+
+        /* Clean Functional Skill Clusters */
+        .skills-wrapper {
+            margin: 40px 0;
+        }
+
+        .skills-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-badge {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .skill-badge:hover {
+            border-color: var(--accent);
+            background-color: var(--accent-dim);
+        }
+
+        /* Direct Contact Signals */
+        .pane-footer a {
+            display: inline-flex;
+            align-items: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            margin-right: 20px;
+            transition: color 0.2s ease;
+        }
+
+        .pane-footer a:hover {
+            color: var(--accent);
+        }
+
+        /* Right Side Layout Components */
+        section {
+            margin-bottom: 80px;
+        }
+
+        .section-label {
+            font-family: var(--font-mono);
+            color: var(--accent);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-label::after {
+            content: '';
+            flex-grow: 1;
+            height: 1px;
+            background-color: var(--border);
+            margin-left: 20px;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+        }
+
+        .about-text strong {
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        /* Structured Project Modules */
+        .project-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 30px;
+            margin-bottom: 24px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(56, 189, 248, 0.4);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .tech-tag {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--accent);
+            background-color: rgba(56, 189, 248, 0.06);
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .project-links a {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-main);
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: 500;
+            border-bottom: 1px dashed var(--accent);
+            padding-bottom: 2px;
+            transition: all 0.2s ease;
+        }
+
+        .project-links a:hover {
+            color: var(--accent);
+            border-bottom-style: solid;
+        }
+
+        /* Non-Fake Pipeline Experience Styling */
+        .pipeline-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .pipeline-card {
+            border: 1px dashed var(--border);
+            padding: 24px;
+            border-radius: 6px;
+        }
+
+        .pipeline-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .status-indicator {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            background-color: #1e293b;
+            color: var(--text-muted);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .pipeline-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Mobile Viewport Adaptations */
+        @media (max-width: 1024px) {
+            body {
+                flex-direction: column;
+            }
+            .identity-pane {
+                position: relative;
+                width: 100%;
+                height: auto;
+                padding: 60px 40px 40px 40px;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+            .content-pane {
+                margin-left: 0;
+                width: 100%;
+                padding: 60px 40px;
+            }
+            .pipeline-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <aside class="identity-pane">
+        <div>
+            <div class="brand-monogram">NEUROK // HUB</div>
+            <h1>Kenawak Ephrem</h1>
+            <div class="title-sub">Frontend Developer</div>
+            <p class="tagline">Building responsive user interfaces, structured components, and seamless browser-based platforms.</p>
+            
+            <div class="skills-wrapper">
+                <div class="skills-group">
+                    <span class="skill-badge">HTML5</span>
+                    <span class="skill-badge">CSS3</span>
+                    <span class="skill-badge">JavaScript</span>
+                    <span class="skill-badge">Responsive Design</span>
+                    <span class="skill-badge">UI Development</span>
+                    <span class="skill-badge">Node.js (Basic)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="pane-footer">
+            <a href="mailto:Anekkena111@gmail.com">Anekkena111@gmail.com</a>
+            <a href="https://github.com/zaniel1st" target="_blank">GitHub</a>
+        </div>
+    </aside>
+
+    <main class="content-pane">
+        
+        <section id="about">
+            <div class="section-label">01 // Profile &amp; Objective</div>
+            <p class="about-text">
+                I am a frontend-focused developer specializing in turning layout logic into interactive web interfaces. Currently completing my studies in <strong>Electronics and Communication Engineering</strong> at Adama Science and Technology University (ASTU), I combine engineering problem-solving with web standard development. I am actively seeking <strong>Frontend Developer roles, Junior Web Developer tracks, or internship opportunities</strong> to apply my technical execution in production environments.
+            </p>
+        </section>
+
+        <section id="projects">
+            <div class="section-label">02 // Verified Projects</div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-title">Office Performance Manager System</div>
+                </div>
+                <p class="project-desc">A task tracking architecture designed to handle operational workflows. Workers submit completed duties from weighted lists, allowing administrators to verify completions and dynamically compute employee performance points metrics.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                    <span class="tech-tag">Python Core</span>
+                    <span class="tech-tag">System Logic</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://zaniel1st.github.io/office-portal/" target="_blank">Live Demo</a>
+                    <a href="https://github.com/zaniel1st/office-portal" target="_blank">View Code</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-title">Coffee Shop Digital Storefront</div>
+                </div>
+                <p class="project-desc">A clean, modern storefront interface optimized for local businesses. Integrates comprehensive menu models, physical asset operational hours, and an automated localized customer booking/reservation request system.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">CSS3 Layouts</span>
+                    <span class="tech-tag">Responsive UI</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://dailygrindcoffeehouse.netlify.app/" target="_blank">Live Demo</a>
+                    <a href="https://github.com/zaniel1st/dailygrindcoffehouse" target="_blank">View Code</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-title">Personal Identity Portfolio</div>
+                </div>
+                <p class="project-desc">A professional portfolio workspace deployed to demonstrate responsive layout configurations, structured development tracks, and cleanly compiled technical code assets.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">CSS Modules</span>
+                    <span class="tech-tag">UI Wireframing</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://zaniel1st.github.io/" target="_blank">Live Demo</a>
+                    <a href="https://github.com/zaniel1st/zaniel1st.github.io" target="_blank">View Code</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="pipeline">
+            <div class="section-label">03 // Skill Pipeline</div>
+            <p class="project-desc" style="margin-bottom: 20px;">Transparent tracking of multimedia and creative disciplines currently being added to my core engineering toolkit.</p>
+            <div class="pipeline-grid">
+                <div class="pipeline-card">
+                    <div class="pipeline-title">
+                        <span>Video Editing</span>
+                        <span class="status-indicator">In Progress</span>
+                    </div>
+                    <p class="pipeline-desc">Learning post-production pipelines and asset assembly workflows for media delivery applications.</p>
+                </div>
+                <div class="pipeline-card">
+                    <div class="pipeline-title">
+                        <span>Graphic Design</span>
+                        <span class="status-indicator">In Progress</span>
+                    </div>
+                    <p class="pipeline-desc">Studying spatial distribution layouts, modern vector structures, and core digital typography frameworks.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="section-label">04 // Communications</div>
+            <p class="project-desc">Open for professional dialogue, project evaluations, and technical interviews.</p>
+            <div class="project-links" style="margin-top: 15px;">
+                <a href="mailto:Anekkena111@gmail.com">Email Gateway</a>
+                <a href="https://github.com/zaniel1st" target="_blank">GitHub Core</a>
+                <a href="https://t.me/H3is3nb3rg_K" target="_blank">Telegram Direct</a>
+                <a href="https://www.instagram.com/zani_el__/" target="_blank">Instagram Channel</a>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>
