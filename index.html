@@ -1088,7 +1088,7 @@
     <!-- ============================================================
          CONTACT
          ============================================================ -->
-    <section class="section" id="contact" aria-labelledby="contact-title">
+     <section class="section" id="contact" aria-labelledby="contact-title">
       <div class="contact-shell">
         <div class="reveal">
           <p class="contact-statement">
@@ -1115,8 +1115,22 @@
           </a>
           <a href="https://github.com/zaniel1st" target="_blank" rel="noopener noreferrer" class="contact-link">
             <span class="contact-link-label">
-              <span class="contact-link-icon">GITHUB</span>
+              <span class="contact-link-icon">GH</span>
               github.com/zaniel1st
+            </span>
+            <span class="contact-link-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a href="https://t.me/H3is3nb3rg_K" target="_blank" rel="noopener noreferrer" class="contact-link">
+            <span class="contact-link-label">
+              <span class="contact-link-icon">TG</span>
+              Telegram
+            </span>
+            <span class="contact-link-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a href="https://www.instagram.com/zani_el__/" target="_blank" rel="noopener noreferrer" class="contact-link">
+            <span class="contact-link-label">
+              <span class="contact-link-icon">IG</span>
+              Instagram
             </span>
             <span class="contact-link-arrow" aria-hidden="true">↗</span>
           </a>
@@ -1124,49 +1138,98 @@
       </div>
     </section>
 
-    <!-- ============================================================
-         FOOTER
-         ============================================================ -->
-    <footer>
+  </div><!-- /page-wrap -->
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer>
+    <div class="page-wrap">
       <div class="footer-inner">
-        <p class="footer-copy">
-          &copy; 2026 Kenawak Ephrem. Built with discipline.
-        </p>
-        <p class="footer-copy">
-          Signal status: <span>Active</span>
-        </p>
+        <p class="footer-copy">Kenawak Ephrem &nbsp;·&nbsp; <span>NEUROK // HUB</span></p>
+        <p class="footer-copy">Designed &amp; built from scratch</p>
       </div>
-    </footer>
+    </div>
+  </footer>
 
-  </div>
-
-  <!-- Smooth tracking logic for scroll signal line -->
+  <!-- ============================================================
+       JAVASCRIPT
+       ============================================================ -->
   <script>
-    window.addEventListener('scroll', () => {
-      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = (winScroll / height) * 100;
-      document.documentElement.style.setProperty('--scroll-pct', scrolled + '%');
-    });
+    (() => {
+      'use strict';
 
-    // Simple Intersection Observer implementation for reveal animations
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1
-    };
+      /* --- Scroll progress line --- */
+      const signalLine = document.querySelector('.signal-line');
+      function updateScrollProgress() {
+        const scrolled = window.scrollY;
+        const total = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = total > 0 ? (scrolled / total) * 100 : 0;
+        signalLine.style.setProperty('--scroll-pct', pct + '%');
+      }
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
+      /* --- Scroll reveal --- */
+      const revealEls = document.querySelectorAll('.reveal');
+      const skillCells = document.querySelectorAll('.skill-cell');
+
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      revealEls.forEach(el => revealObserver.observe(el));
+
+      /* --- Skill bar animation (triggered by intersection) --- */
+      const skillObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const cell = entry.target;
+            const fill = cell.querySelector('.skill-bar-fill');
+            if (fill) {
+              const target = parseFloat(fill.style.getPropertyValue('--fill') || 0);
+              fill.style.transform = `scaleX(${target})`;
+              cell.classList.add('in-view');
+            }
+            skillObserver.unobserve(cell);
+          }
+        });
+      }, { threshold: 0.3 });
+
+      skillCells.forEach(cell => skillObserver.observe(cell));
+
+      /* --- Throttled scroll handler --- */
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            updateScrollProgress();
+            ticking = false;
+          });
+          ticking = true;
         }
-      });
-    }, observerOptions);
+      }, { passive: true });
 
-    document.querySelectorAll('.reveal, .skill-cell').forEach(el => {
-      observer.observe(el);
-    });
+      /* Run once on load */
+      updateScrollProgress();
+
+      /* --- Smooth anchor scroll --- */
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', e => {
+          const target = document.querySelector(anchor.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+    })();
   </script>
+
 </body>
 </html>
+
