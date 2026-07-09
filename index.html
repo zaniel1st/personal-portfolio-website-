@@ -6,6 +6,7 @@
   <title>Kenawak Ephrem — Frontend Developer</title>
   <meta name="description" content="Frontend developer building real interfaces, solving real problems. ECE student at ASTU." />
 
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -783,8 +784,10 @@
 </head>
 
 <body>
+  <!-- Scroll progress line -->
   <div class="signal-line" aria-hidden="true"></div>
 
+  <!-- Top bar -->
   <header class="topbar" role="banner">
     <a href="#" class="topbar-mono" aria-label="Back to top">Kenawak Ephrem</a>
     <div class="topbar-status" aria-label="Available for work">
@@ -795,6 +798,9 @@
 
   <div class="page-wrap">
 
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
     <section class="hero" aria-labelledby="hero-name">
       <div>
         <p class="hero-eyebrow">Frontend Developer · ECE Student</p>
@@ -818,6 +824,9 @@
 
     <div class="divider"></div>
 
+    <!-- ============================================================
+         ABOUT
+         ============================================================ -->
     <section class="section" id="about" aria-labelledby="about-title">
       <div class="section-head">
         <span class="section-label">About</span>
@@ -864,6 +873,9 @@
 
     <div class="divider"></div>
 
+    <!-- ============================================================
+         SKILLS
+         ============================================================ -->
     <section class="section" id="skills" aria-labelledby="skills-title">
       <div class="section-head">
         <span class="section-label">Toolkit</span>
@@ -918,6 +930,9 @@
 
     <div class="divider"></div>
 
+    <!-- ============================================================
+         PROJECTS
+         ============================================================ -->
     <section class="section" id="projects" aria-labelledby="projects-title">
       <div class="section-head">
         <span class="section-label">Work</span>
@@ -926,6 +941,7 @@
 
       <div class="projects-list" role="list">
 
+        <!-- Project 1 (LifeOS) -->
         <article class="project-card reveal" role="listitem">
           <div class="project-top">
             <div>
@@ -958,6 +974,7 @@
           </div>
         </article>
 
+        <!-- Project 2 (AgriLink AI) -->
         <article class="project-card reveal" role="listitem">
           <div class="project-top">
             <div>
@@ -987,6 +1004,7 @@
           </div>
         </article>
 
+        <!-- Project 3 (Office Performance Manager) -->
         <article class="project-card reveal" role="listitem">
           <div class="project-top">
             <div>
@@ -1018,6 +1036,7 @@
           </div>
         </article>
 
+        <!-- Project 4 (Coffee Shop) -->
         <article class="project-card reveal" role="listitem">
           <div class="project-top">
             <div>
@@ -1049,6 +1068,7 @@
           </div>
         </article>
 
+        <!-- Project 5 (Personal Portfolio) -->
         <article class="project-card reveal" role="listitem">
           <div class="project-top">
             <div>
@@ -1082,6 +1102,7 @@
 
       </div>
 
+      <!-- Coming soon -->
       <div class="soon-grid" aria-label="Upcoming work">
         <div class="soon-card reveal">
           <span class="soon-badge">Coming soon</span>
@@ -1092,5 +1113,26 @@
     </section>
 
   </div>
+
+  <!-- Intersection Observer to handle layout reveal visibility safely -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal, .skill-cell').forEach((el) => observer.observe(el));
+
+    // Monitor scroll for signal line progress
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      document.documentElement.style.setProperty('--scroll-pct', scrolled + '%');
+    });
+  </script>
 </body>
 </html>
