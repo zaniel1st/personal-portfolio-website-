@@ -6,6 +6,7 @@
   <title>Kenawak Ephrem — Frontend Developer</title>
   <meta name="description" content="Frontend developer building real interfaces, solving real problems. ECE student at ASTU." />
 
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -690,7 +691,7 @@
       font-size: 0.65rem;
       color: var(--amber);
       letter-spacing: 0.1em;
-      width: 36px;
+      width: 70px; /* Adjusted to balance longer titles like Telegram/Instagram */
     }
 
     .contact-link-arrow {
@@ -783,8 +784,10 @@
 </head>
 
 <body>
+  <!-- Scroll progress line -->
   <div class="signal-line" aria-hidden="true"></div>
 
+  <!-- Top bar -->
   <header class="topbar" role="banner">
     <a href="#" class="topbar-mono" aria-label="Back to top">Kenawak Ephrem</a>
     <div class="topbar-status" aria-label="Available for work">
@@ -795,6 +798,9 @@
 
   <div class="page-wrap">
 
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
     <section class="hero" aria-labelledby="hero-name">
       <div>
         <p class="hero-eyebrow">Frontend Developer · ECE Student</p>
@@ -818,6 +824,9 @@
 
     <div class="divider"></div>
 
+    <!-- ============================================================
+         ABOUT
+         ============================================================ -->
     <section class="section" id="about" aria-labelledby="about-title">
       <div class="section-head">
         <span class="section-label">About</span>
@@ -864,6 +873,9 @@
 
     <div class="divider"></div>
 
+    <!-- ============================================================
+         SKILLS
+         ============================================================ -->
     <section class="section" id="skills" aria-labelledby="skills-title">
       <div class="section-head">
         <span class="section-label">Toolkit</span>
@@ -918,6 +930,9 @@
 
     <div class="divider"></div>
 
+    <!-- ============================================================
+         PROJECTS
+         ============================================================ -->
     <section class="section" id="projects" aria-labelledby="projects-title">
       <div class="section-head">
         <span class="section-label">Work</span>
@@ -926,6 +941,7 @@
 
       <div class="projects-list" role="list">
 
+        <!-- Project 1 (LifeOS) -->
         <article class="project-card reveal" role="listitem">
           <div class="project-top">
             <div>
@@ -958,6 +974,7 @@
           </div>
         </article>
 
+        <!-- Project 2 (AgriLink AI) -->
         <article class="project-card reveal" role="listitem">
           <div class="project-top">
             <div>
@@ -987,6 +1004,7 @@
           </div>
         </article>
 
+        <!-- Project 3 (Office Performance Manager) -->
         <article class="project-card reveal" role="listitem">
           <div class="project-top">
             <div>
@@ -1018,6 +1036,7 @@
           </div>
         </article>
 
+        <!-- Project 4 (Coffee Shop) -->
         <article class="project-card reveal" role="listitem">
           <div class="project-top">
             <div>
@@ -1049,6 +1068,7 @@
           </div>
         </article>
 
+        <!-- Project 5 (Personal Portfolio) -->
         <article class="project-card reveal" role="listitem">
           <div class="project-top">
             <div>
@@ -1082,6 +1102,7 @@
 
       </div>
 
+      <!-- Coming soon -->
       <div class="soon-grid" aria-label="Upcoming work">
         <div class="soon-card reveal">
           <span class="soon-badge">Coming soon</span>
@@ -1093,6 +1114,9 @@
 
     <div class="divider"></div>
 
+    <!-- ============================================================
+         CONTACT
+         ============================================================ -->
     <section class="section" id="contact" aria-labelledby="contact-title">
       <div class="section-head">
         <span class="section-label">Connect</span>
@@ -1124,10 +1148,27 @@
             </span>
             <span class="contact-link-arrow" aria-hidden="true">↗</span>
           </a>
+          <a href="https://t.me/H3is3nb3rg_K" target="_blank" rel="noopener noreferrer" class="contact-link">
+            <span class="contact-link-label">
+              <span class="contact-link-icon">Telegram</span>
+              <span>@H3is3nb3rg_K</span>
+            </span>
+            <span class="contact-link-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a href="https://www.instagram.com/zani_el__?igsh=cnlvYXg4cTF5enBy" target="_blank" rel="noopener noreferrer" class="contact-link">
+            <span class="contact-link-label">
+              <span class="contact-link-icon">Instagram</span>
+              <span>@zani_el__</span>
+            </span>
+            <span class="contact-link-arrow" aria-hidden="true">↗</span>
+          </a>
         </nav>
       </div>
     </section>
 
+    <!-- ============================================================
+         FOOTER
+         ============================================================ */ -->
     <footer>
       <div class="footer-inner">
         <p class="footer-copy">&copy; 2026 Kenawak Ephrem. Built from code line logic.</p>
@@ -1137,6 +1178,7 @@
 
   </div>
 
+  <!-- Intersection Observer to handle layout reveal visibility safely -->
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
