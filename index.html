@@ -1115,6 +1115,56 @@
   </div>
 
   <!-- Intersection Observer to handle layout reveal visibility safely -->
+  <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="contact-shell">
+        <div class="reveal">
+          <p class="contact-statement">
+            Have a project?<br>
+            An opening?<br>
+            Just <em>curious?</em>
+          </p>
+          <p class="contact-sub">
+            I'm open to frontend roles, junior tracks, and internship opportunities. 
+            If something I've built caught your attention, let's talk.
+          </p>
+          <a href="mailto:Anekkena111@gmail.com" class="btn btn-primary" style="margin-top: 4px;">
+            Send an email
+          </a>
+        </div>
+
+        <nav class="contact-links reveal reveal-delay-1" aria-label="Contact channels">
+          <a href="mailto:Anekkena111@gmail.com" class="contact-link">
+            <span class="contact-link-label">
+              <span class="contact-link-icon">EMAIL</span>
+              Anekkena111@gmail.com
+            </span>
+            <span class="contact-link-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a href="https://github.com/zaniel1st" target="_blank" rel="noopener noreferrer" class="contact-link">
+            <span class="contact-link-label">
+              <span class="contact-link-icon">GH</span>
+              github.com/zaniel1st
+            </span>
+            <span class="contact-link-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a href="https://t.me/H3is3nb3rg_K" target="_blank" rel="noopener noreferrer" class="contact-link">
+            <span class="contact-link-label">
+              <span class="contact-link-icon">TG</span>
+              Telegram
+            </span>
+            <span class="contact-link-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a href="https://www.instagram.com/zani_el__/" target="_blank" rel="noopener noreferrer" class="contact-link">
+            <span class="contact-link-label">
+              <span class="contact-link-icon">IG</span>
+              Instagram
+            </span>
+            <span class="contact-link-arrow" aria-hidden="true">↗</span>
+          </a>
+        </nav>
+      </div>
+    </section>
+
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -1134,5 +1184,6 @@
       document.documentElement.style.setProperty('--scroll-pct', scrolled + '%');
     });
   </script>
+  
 </body>
 </html>
