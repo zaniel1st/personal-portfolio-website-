@@ -6,7 +6,6 @@
   <title>Kenawak Ephrem — Frontend Developer</title>
   <meta name="description" content="Frontend developer building real interfaces, solving real problems. ECE student at ASTU." />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -784,10 +783,8 @@
 </head>
 
 <body>
-  <!-- Scroll progress line -->
   <div class="signal-line" aria-hidden="true"></div>
 
-  <!-- Top bar -->
   <header class="topbar" role="banner">
     <a href="#" class="topbar-mono" aria-label="Back to top">Kenawak Ephrem</a>
     <div class="topbar-status" aria-label="Available for work">
@@ -798,9 +795,6 @@
 
   <div class="page-wrap">
 
-    <!-- ============================================================
-         HERO
-         ============================================================ -->
     <section class="hero" aria-labelledby="hero-name">
       <div>
         <p class="hero-eyebrow">Frontend Developer · ECE Student</p>
@@ -824,9 +818,6 @@
 
     <div class="divider"></div>
 
-    <!-- ============================================================
-         ABOUT
-         ============================================================ -->
     <section class="section" id="about" aria-labelledby="about-title">
       <div class="section-head">
         <span class="section-label">About</span>
@@ -873,9 +864,6 @@
 
     <div class="divider"></div>
 
-    <!-- ============================================================
-         SKILLS
-         ============================================================ -->
     <section class="section" id="skills" aria-labelledby="skills-title">
       <div class="section-head">
         <span class="section-label">Toolkit</span>
@@ -930,9 +918,6 @@
 
     <div class="divider"></div>
 
-    <!-- ============================================================
-         PROJECTS
-         ============================================================ -->
     <section class="section" id="projects" aria-labelledby="projects-title">
       <div class="section-head">
         <span class="section-label">Work</span>
@@ -941,11 +926,39 @@
 
       <div class="projects-list" role="list">
 
-        <!-- Project 1 -->
-         <article class="project-card reveal" role="listitem">
+        <article class="project-card reveal" role="listitem">
           <div class="project-top">
             <div>
               <div class="project-index">01</div>
+              <h3 class="project-title">LifeOS</h3>
+            </div>
+            <span class="project-arrow" aria-hidden="true">↗</span>
+          </div>
+          <p class="project-desc">
+            A specialized organizational ecosystem designed to streamline workflow scheduling, target milestones, and manage core everyday tracking parameters within a single intuitive, responsive interface.
+          </p>
+          <div class="project-footer">
+            <div class="tech-stack" aria-label="Technologies used">
+              <span class="tech-pill">HTML5</span>
+              <span class="tech-pill">CSS3</span>
+              <span class="tech-pill">JavaScript</span>
+              <span class="tech-pill">Productivity UI</span>
+            </div>
+            <nav class="project-links" aria-label="Project links">
+              <a href="https://zaniel1st.github.io/lifeos/" target="_blank" rel="noopener noreferrer" class="project-link">
+                Live demo ↗
+              </a>
+              <a href="https://github.com/zaniel1st/lifeos" target="_blank" rel="noopener noreferrer" class="project-link">
+                Source ↗
+              </a>
+            </nav>
+          </div>
+        </article>
+
+        <article class="project-card reveal" role="listitem">
+          <div class="project-top">
+            <div>
+              <div class="project-index">02</div>
               <h3 class="project-title">AgriLink AI</h3>
             </div>
             <span class="project-arrow" aria-hidden="true">↗</span>
@@ -971,13 +984,10 @@
           </div>
         </article>
 
-      </div>
-
-        <!-- Project 2 -->
-       <article class="project-card reveal" role="listitem">
+        <article class="project-card reveal" role="listitem">
           <div class="project-top">
             <div>
-              <div class="project-index">02</div>
+              <div class="project-index">03</div>
               <h3 class="project-title">Office Performance Manager</h3>
             </div>
             <span class="project-arrow" aria-hidden="true">↗</span>
@@ -1005,11 +1015,10 @@
           </div>
         </article>
 
-        <!-- Project 3 -->
-         <article class="project-card reveal" role="listitem">
+        <article class="project-card reveal" role="listitem">
           <div class="project-top">
             <div>
-              <div class="project-index">03</div>
+              <div class="project-index">04</div>
               <h3 class="project-title">Coffee Shop Digital Storefront</h3>
             </div>
             <span class="project-arrow" aria-hidden="true">↗</span>
@@ -1036,11 +1045,11 @@
             </nav>
           </div>
         </article>
-        <!-- Project 4 -->
-<article class="project-card reveal" role="listitem">
+
+        <article class="project-card reveal" role="listitem">
           <div class="project-top">
             <div>
-              <div class="project-index">04</div>
+              <div class="project-index">05</div>
               <h3 class="project-title">Personal Portfolio</h3>
             </div>
             <span class="project-arrow" aria-hidden="true">↗</span>
@@ -1068,168 +1077,17 @@
           </div>
         </article>
 
-      <!-- Coming soon -->
+      </div>
+
       <div class="soon-grid" aria-label="Upcoming work">
         <div class="soon-card reveal">
           <span class="soon-badge">Coming soon</span>
           <h3 class="soon-title">Video Editing Portfolio</h3>
           <p class="soon-desc">Post-production work and motion experiments. Currently learning the pipeline.</p>
         </div>
-        <div class="soon-card reveal reveal-delay-1">
-          <span class="soon-badge">Coming soon</span>
-          <h3 class="soon-title">Graphic Design Portfolio</h3>
-          <p class="soon-desc">Layout, typography, and vector work. Building the foundation now.</p>
-        </div>
       </div>
     </section>
 
-    <div class="divider"></div>
-
-    <!-- ============================================================
-         CONTACT
-         ============================================================ -->
-     <section class="section" id="contact" aria-labelledby="contact-title">
-      <div class="contact-shell">
-        <div class="reveal">
-          <p class="contact-statement">
-            Have a project?<br>
-            An opening?<br>
-            Just <em>curious?</em>
-          </p>
-          <p class="contact-sub">
-            I'm open to frontend roles, junior tracks, and internship opportunities. 
-            If something I've built caught your attention, let's talk.
-          </p>
-          <a href="mailto:Anekkena111@gmail.com" class="btn btn-primary" style="margin-top: 4px;">
-            Send an email
-          </a>
-        </div>
-
-        <nav class="contact-links reveal reveal-delay-1" aria-label="Contact channels">
-          <a href="mailto:Anekkena111@gmail.com" class="contact-link">
-            <span class="contact-link-label">
-              <span class="contact-link-icon">EMAIL</span>
-              Anekkena111@gmail.com
-            </span>
-            <span class="contact-link-arrow" aria-hidden="true">↗</span>
-          </a>
-          <a href="https://github.com/zaniel1st" target="_blank" rel="noopener noreferrer" class="contact-link">
-            <span class="contact-link-label">
-              <span class="contact-link-icon">GH</span>
-              github.com/zaniel1st
-            </span>
-            <span class="contact-link-arrow" aria-hidden="true">↗</span>
-          </a>
-          <a href="https://t.me/H3is3nb3rg_K" target="_blank" rel="noopener noreferrer" class="contact-link">
-            <span class="contact-link-label">
-              <span class="contact-link-icon">TG</span>
-              Telegram
-            </span>
-            <span class="contact-link-arrow" aria-hidden="true">↗</span>
-          </a>
-          <a href="https://www.instagram.com/zani_el__/" target="_blank" rel="noopener noreferrer" class="contact-link">
-            <span class="contact-link-label">
-              <span class="contact-link-icon">IG</span>
-              Instagram
-            </span>
-            <span class="contact-link-arrow" aria-hidden="true">↗</span>
-          </a>
-        </nav>
-      </div>
-    </section>
-
-  </div><!-- /page-wrap -->
-
-  <!-- ============================================================
-       FOOTER
-       ============================================================ -->
-  <footer>
-    <div class="page-wrap">
-      <div class="footer-inner">
-        <p class="footer-copy">Kenawak Ephrem &nbsp;·&nbsp; <span>NEUROK // HUB</span></p>
-        <p class="footer-copy">Designed &amp; built from scratch</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ============================================================
-       JAVASCRIPT
-       ============================================================ -->
-  <script>
-    (() => {
-      'use strict';
-
-      /* --- Scroll progress line --- */
-      const signalLine = document.querySelector('.signal-line');
-      function updateScrollProgress() {
-        const scrolled = window.scrollY;
-        const total = document.documentElement.scrollHeight - window.innerHeight;
-        const pct = total > 0 ? (scrolled / total) * 100 : 0;
-        signalLine.style.setProperty('--scroll-pct', pct + '%');
-      }
-
-      /* --- Scroll reveal --- */
-      const revealEls = document.querySelectorAll('.reveal');
-      const skillCells = document.querySelectorAll('.skill-cell');
-
-      const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-      revealEls.forEach(el => revealObserver.observe(el));
-
-      /* --- Skill bar animation (triggered by intersection) --- */
-      const skillObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const cell = entry.target;
-            const fill = cell.querySelector('.skill-bar-fill');
-            if (fill) {
-              const target = parseFloat(fill.style.getPropertyValue('--fill') || 0);
-              fill.style.transform = `scaleX(${target})`;
-              cell.classList.add('in-view');
-            }
-            skillObserver.unobserve(cell);
-          }
-        });
-      }, { threshold: 0.3 });
-
-      skillCells.forEach(cell => skillObserver.observe(cell));
-
-      /* --- Throttled scroll handler --- */
-      let ticking = false;
-      window.addEventListener('scroll', () => {
-        if (!ticking) {
-          requestAnimationFrame(() => {
-            updateScrollProgress();
-            ticking = false;
-          });
-          ticking = true;
-        }
-      }, { passive: true });
-
-      /* Run once on load */
-      updateScrollProgress();
-
-      /* --- Smooth anchor scroll --- */
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', e => {
-          const target = document.querySelector(anchor.getAttribute('href'));
-          if (target) {
-            e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        });
-      });
-
-    })();
-  </script>
-
+  </div>
 </body>
 </html>
-
